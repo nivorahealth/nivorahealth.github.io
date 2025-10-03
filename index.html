@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nivora HealthTech Solutions — Healthcare Branding & Digital Health</title>
+  <meta name="description" content="Nivora — personal branding & digital health solutions for doctors, clinics, and hospitals. Ethics-first, data-driven." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nivora HealthTech Solutions" />
+  <meta property="og:description" content="Healthcare branding, digital visibility & patient engagement tools." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nivorahealth.github.io" />
+  <!-- Styles (minimal) -->
+  <style>
+    :root{
+      --maroon:#7A0000;
+      --navy:#050A30;
+      --muted:#6b7280;
+      --maxw:1000px;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{margin:0;color:#111;background:#fff;line-height:1.6}
+    .container{max-width:var(--maxw);margin:48px auto;padding:0 20px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:700;color:var(--navy);font-size:20px;letter-spacing:1px}
+    nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-size:14px}
+    .hero{display:flex;gap:28px;align-items:center;margin-top:36px}
+    .hero-left{flex:1}
+    h1{font-size:28px;margin:0 0 12px;color:var(--navy)}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .cta{display:inline-block;background:var(--maroon);color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px}
+    .card{border:1px solid #eef2f7;padding:16px;border-radius:10px;background:#fff}
+    .card h3{margin:0 0 8px;font-size:16px;color:var(--navy)}
+    footer{margin:60px 0 20px;color:var(--muted);font-size:14px;text-align:center}
+    .small{font-size:13px;color:var(--muted)}
+    /* Responsive */
+    @media(max-width:720px){
+      .hero{flex-direction:column;align-items:flex-start}
+      h1{font-size:22px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">NIVORA</div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <h1>Healthcare branding & digital health — ethically built for doctors.</h1>
+        <p class="lead">Nivora helps doctors, clinics and hospitals build trust, visibility and patient engagement with data-driven design and ethical storytelling.</p>
+        <a class="cta" href="#contact">Book a free consult</a>
+
+        <div class="cards" style="margin-top:22px">
+          <div class="card">
+            <h3>Personal Brand Toolkit</h3>
+            <p class="small">Logo, website, social kit — starter → premium packages.</p>
+          </div>
+          <div class="card">
+            <h3>Extended Care</h3>
+            <p class="small">Monthly content, reputation management, SEO & analytics.</p>
+          </div>
+          <div class="card">
+            <h3>HealthTech & Apps</h3>
+            <p class="small">Patient engagement apps, appointment integrations, dashboards.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="width:320px">
+        <!-- Quick contact card -->
+        <div style="border-radius:12px;border:1px solid #eef2f7;padding:18px;background:#fafafc">
+          <strong>Contact</strong>
+          <p class="small" style="margin:8px 0 10px">nivorahealth@zohomail.in</p>
+          <p class="small" style="margin:0 0 10px">Hyderabad, India</p>
+          <a class="cta" href="mailto:nivorahealth@zohomail.in">Email Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" style="margin-top:44px">
+      <h2 style="color:var(--navy)">How we help</h2>
+      <p class="small">We combine evidence-based design, medical ethics and local SEO to increase trust and bookings.</p>
+
+      <div class="cards" style="margin-top:18px">
+        <div class="card"><h3>Brand Identity</h3><p class="small">Logo, identity, clinic collaterals & brand guidelines.</p></div>
+        <div class="card"><h3>Digital Presence</h3><p class="small">Website, Google profile setup, online listings & SEO.</p></div>
+        <div class="card"><h3>Content & Reputation</h3><p class="small">Patient education, reviews & monthly content plans.</p></div>
+        <div class="card"><h3>Products & Tools</h3><p class="small">Booking integrations, appointment flows & patient apps.</p></div>
+      </div>
+    </section>
+
+    <section id="work" style="margin-top:44px">
+      <h2 style="color:var(--navy)">Sample work (mockups)</h2>
+      <p class="small">Case studies & before-after examples available on request.</p>
+    </section>
+
+    <section id="contact" style="margin-top:28px">
+      <h2 style="color:var(--navy)">Get in touch</h2>
+      <p class="small">Tell us a little about your practice and we’ll respond within 48 hours.</p>
+
+      <!-- Simple form (Formspree example). Replace action with your Formspree endpoint. -->
+      <form action="https://formspree.io/f/your-form-id" method="POST" style="max-width:560px">
+        <div style="display:flex;gap:8px">
+          <input name="name" placeholder="Your name" required style="flex:1;padding:10px;border:1px solid #e6e9ef;border-radius:6px" />
+          <input name="phone" placeholder="Phone" required style="flex:1;padding:10px;border:1px solid #e6e9ef;border-radius:6px" />
+        </div>
+        <div style="margin-top:8px">
+          <input name="email" placeholder="Email" required style="width:100%;padding:10px;border:1px solid #e6e9ef;border-radius:6px" />
+        </div>
+        <div style="margin-top:8px">
+          <textarea name="message" placeholder="Tell us about your practice" rows="4" style="width:100%;padding:10px;border:1px solid #e6e9ef;border-radius:6px"></textarea>
+        </div>
+        <div style="margin-top:10px">
+          <button type="submit" class="cta">Send message</button>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      <div>© <strong>Nivora HealthTech Solutions</strong> • Built on GitHub Pages</div>
+      <div style="margin-top:8px" class="small">“Doctors save lives. We save their legacy.”</div>
+    </footer>
+  </div>
+
+  <!-- Add analytics: replace UA-XXXXX or GA4 placeholder below -->
+  <!-- Google Analytics placeholder: -->
+  <script>
+    // Replace with your analytics snippet if any
+    window.NIVORA = { site: 'nivorahealth.github.io' };
+  </script>
+</body>
+</html>
