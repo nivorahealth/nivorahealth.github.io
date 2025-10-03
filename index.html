@@ -4,137 +4,484 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nivora HealthTech Solutions — Healthcare Branding & Digital Health</title>
-  <meta name="description" content="Nivora — personal branding & digital health solutions for doctors, clinics, and hospitals. Ethics-first, data-driven." />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Nivora HealthTech Solutions" />
-  <meta property="og:description" content="Healthcare branding, digital visibility & patient engagement tools." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nivorahealth.github.io" />
-  <!-- Styles (minimal) -->
+  <meta name="description" content="Nivora: ethical healthcare branding, digital presence, and healthtech solutions for doctors, clinics, and hospitals." />
+  <meta name="author" content="Nivora HealthTech Solutions" />
+  <!-- Colours: --navy: #022B53, --mint: #B4DBDC -->
   <style>
-    :root{
-      --maroon:#7A0000;
-      --navy:#050A30;
-      --muted:#6b7280;
-      --maxw:1000px;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    body{margin:0;color:#111;background:#fff;line-height:1.6}
-    .container{max-width:var(--maxw);margin:48px auto;padding:0 20px}
-    header{display:flex;align-items:center;justify-content:space-between}
-    .logo{font-weight:700;color:var(--navy);font-size:20px;letter-spacing:1px}
-    nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-size:14px}
-    .hero{display:flex;gap:28px;align-items:center;margin-top:36px}
-    .hero-left{flex:1}
-    h1{font-size:28px;margin:0 0 12px;color:var(--navy)}
-    p.lead{color:var(--muted);margin:0 0 18px}
-    .cta{display:inline-block;background:var(--maroon);color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px}
-    .card{border:1px solid #eef2f7;padding:16px;border-radius:10px;background:#fff}
-    .card h3{margin:0 0 8px;font-size:16px;color:var(--navy)}
-    footer{margin:60px 0 20px;color:var(--muted);font-size:14px;text-align:center}
-    .small{font-size:13px;color:var(--muted)}
-    /* Responsive */
-    @media(max-width:720px){
-      .hero{flex-direction:column;align-items:flex-start}
-      h1{font-size:22px}
-    }
+  :root{
+    --navy:#022B53;
+    --mint:#B4DBDC;
+    --muted:#58606b;
+    --bg:#ffffff;
+    --card:#f7feff;
+    --accent:#0aa6a9;
+    --maxw:1100px;
+    --radius:12px;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:linear-gradient(180deg,#fbfeff, #ffffff);color:var(--navy);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:var(--maxw);margin:0 auto;padding:28px 20px}
+  header{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-mark{height:48px;width:48px;border-radius:10px;background:linear-gradient(135deg,var(--navy),#053a6a);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:20px;box-shadow:0 8px 28px rgba(2,43,83,0.08)}
+  .brand h1{font-size:18px;margin:0;color:var(--navy);letter-spacing:0.6px}
+  nav.desktop{display:flex;gap:16px;align-items:center}
+  nav.desktop a{font-size:14px;color:var(--navy);opacity:0.9}
+  .cta-primary{background:var(--navy);color:#fff;padding:10px 14px;border-radius:10px;font-weight:600;display:inline-block}
+  .mobile-toggle{display:none;border:0;background:transparent;font-size:22px}
+  .mobile-nav{display:none;position:fixed;inset:0;background:rgba(2,43,83,0.92);z-index:999;padding:48px 20px;color:#fff}
+  .mobile-nav a{display:block;padding:14px 0;font-size:20px;color:#fff}
+
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;padding:28px 0}
+  .eyebrow{display:inline-block;background:var(--mint);color:var(--navy);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px}
+  h2.hero-title{font-size:34px;margin:14px 0 8px;line-height:1.04;color:var(--navy)}
+  .lead{color:#334155;margin:0 0 18px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+  .card-contact{background:var(--card);border-radius:14px;padding:18px;box-shadow:0 8px 22px rgba(2,43,83,0.06);border:1px solid rgba(2,43,83,0.04)}
+  .stat-grid{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .stat{background:#fff;padding:12px;border-radius:10px;min-width:110px;text-align:center;border:1px solid rgba(2,43,83,0.04)}
+  .stat h3{margin:0;font-size:20px;color:var(--navy)}
+  .stat p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+  .section{padding:22px 0;border-top:1px solid rgba(2,43,83,0.035)}
+  .section h2{font-size:22px;margin:0 0 8px;color:var(--navy)}
+  .section p.lead-small{color:var(--muted);margin:0 0 12px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .card{background:linear-gradient(180deg,#fff,#fbfdff);padding:18px;border-radius:12px;border:1px solid rgba(2,43,83,0.04);box-shadow:0 6px 18px rgba(2,43,83,0.035)}
+  .card h3{margin:0 0 6px;color:var(--navy)}
+  .card p{margin:0;color:var(--muted);font-size:14px}
+
+  /* Pricing table */
+  .price-table{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .price-card{flex:1;min-width:260px;background:linear-gradient(180deg,#fff,#fbfeff);border-radius:12px;padding:16px;border:1px solid rgba(2,43,83,0.06)}
+  .price-card .title{display:flex;justify-content:space-between;align-items:center}
+  .price-card h3{margin:8px 0 0}
+  .price-amount{font-size:20px;color:var(--navy);font-weight:700;margin-top:8px}
+  .features{margin:12px 0;padding-left:16px;color:var(--muted)}
+  .btn-ghost{padding:10px 12px;border-radius:10px;border:1px solid rgba(2,43,83,0.08);display:inline-block}
+
+  /* Extended Care monthly cards */
+  .monthly-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
+
+  /* Add-ons */
+  .addons{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+
+  /* Roadmap */
+  .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}
+  .step{background:linear-gradient(180deg,#fff,#fcffff);padding:14px;border-radius:10px;border:1px solid rgba(2,43,83,0.04)}
+
+  /* Case, team, testimonials */
+  .case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+  .case{border-radius:12px;overflow:hidden;border:1px solid rgba(2,43,83,0.06);background:#fff}
+  .case .media{height:160px;background:linear-gradient(90deg,var(--navy),var(--mint));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+  .case .content{padding:12px}
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px}
+  .member{background:var(--card);padding:12px;border-radius:12px;text-align:center}
+
+  /* FAQ + CTA + footer */
+  .faq{margin-top:12px}
+  .faq details{background:#fff;border-radius:10px;padding:10px;border:1px solid rgba(2,43,83,0.04);margin-bottom:8px}
+  footer{margin-top:24px;padding:28px 0;color:var(--muted);font-size:13px;text-align:center}
+
+  /* responsive */
+  @media(max-width:980px){.hero{grid-template-columns:1fr}.brand h1{font-size:16px}}
+  @media(max-width:720px){nav.desktop{display:none}.mobile-toggle{display:block}.brand-mark{height:44px;width:44px;font-size:16px}.hero-title{font-size:22px}}
+
+  /* tiny animation */
+  .reveal{opacity:0;transform:translateY(10px);transition:all .5s ease}
+  .reveal.visible{opacity:1;transform:none}
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="top">
     <header>
-      <div class="logo">NIVORA</div>
-      <nav>
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">N</div>
+        <h1>Nivora HealthTech</h1>
+      </div>
+
+      <nav class="desktop" aria-label="Main navigation">
         <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#contact">Contact</a>
+        <a href="#packages">Packages</a>
+        <a href="#monthly">Extended Care</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact" class="cta-primary">Contact</a>
       </nav>
+
+      <button class="mobile-toggle" aria-controls="mobile-menu" aria-expanded="false" id="mobileToggle">☰</button>
     </header>
 
-    <section class="hero" id="home">
-      <div class="hero-left">
-        <h1>Healthcare branding & digital health — ethically built for doctors.</h1>
-        <p class="lead">Nivora helps doctors, clinics and hospitals build trust, visibility and patient engagement with data-driven design and ethical storytelling.</p>
-        <a class="cta" href="#contact">Book a free consult</a>
+    <!-- Mobile nav -->
+    <div id="mobileMenu" class="mobile-nav" aria-hidden="true">
+      <button id="closeMobile" style="border:0;background:transparent;color:#fff;font-size:22px;position:absolute;right:20px;top:18px">✕</button>
+      <nav aria-label="Mobile nav">
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#monthly">Extended Care</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
 
-        <div class="cards" style="margin-top:22px">
-          <div class="card">
-            <h3>Personal Brand Toolkit</h3>
-            <p class="small">Logo, website, social kit — starter → premium packages.</p>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div>
+        <span class="eyebrow">Ethics-first • Doctor-centric • Exclusive (one specialist / city)</span>
+        <h2 id="heroTitle" class="hero-title">We make doctors & hospitals visible, trusted and future-ready.</h2>
+        <p class="lead">Nivora builds professional brand identities, patient-facing websites and digital experiences for healthcare professionals — combining medical ethics, patient psychology and measurable growth.</p>
+
+        <div class="hero-cta">
+          <a class="cta-primary" href="#contact">Book a Free Consult</a>
+          <a href="#packages" class="btn-ghost">See Packages</a>
+        </div>
+
+        <div class="stat-grid reveal" style="margin-top:22px">
+          <div class="stat"><h3>10+</h3><p>Demo Projects</p></div>
+          <div class="stat"><h3>100%</h3><p>Ethics Compliant</p></div>
+          <div class="stat"><h3>1 / city</h3><p>Exclusive Specialist</p></div>
+        </div>
+
+        <div class="section reveal" id="services">
+          <h2>Services – What Nivora Delivers</h2>
+          <p class="lead-small">We offer end-to-end productised services for individual doctors, clinics and hospitals. Everything is compliant, transparent and measurable.</p>
+
+          <div class="cards">
+            <div class="card">
+              <h3>Brand Identity</h3>
+              <p>Logo systems, color & typography, stationery, signage guidelines, photography brief, brand voice & messaging tailored to medical ethics.</p>
+            </div>
+            <div class="card">
+              <h3>Digital Presence</h3>
+              <p>Responsive websites (fast & accessible), Google Business setup, local SEO ("doctor near me" optimisation), appointment & booking integrations.</p>
+            </div>
+            <div class="card">
+              <h3>Reputation & Content</h3>
+              <p>Patient education content, review & reputation management, monthly content calendar, LinkedIn thought leadership for doctors.</p>
+            </div>
+            <div class="card">
+              <h3>HealthTech & Tools</h3>
+              <p>Patient engagement apps (MVP), booking flows, dashboards for leads & conversions, analytics & ROI dashboards for clinicians.</p>
+            </div>
           </div>
-          <div class="card">
-            <h3>Extended Care</h3>
-            <p class="small">Monthly content, reputation management, SEO & analytics.</p>
+        </div>
+
+      </div>
+
+      <aside class="card-contact reveal" aria-labelledby="contactbox">
+        <div id="contactbox">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--navy),#054a7b);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800">N</div>
+            <div>
+              <div style="font-weight:700;color:var(--navy)">Nivora HealthTech</div>
+              <div style="font-size:13px;color:var(--muted)">Ethical healthcare branding</div>
+            </div>
           </div>
-          <div class="card">
-            <h3>HealthTech & Apps</h3>
-            <p class="small">Patient engagement apps, appointment integrations, dashboards.</p>
+
+          <div style="margin-top:12px">
+            <div style="font-size:13px;color:var(--muted)">Contact</div>
+            <div style="margin-top:6px"><a href="mailto:nivorahealth@zohomail.in">nivorahealth@zohomail.in</a></div>
+            <div style="margin-top:6px;color:var(--muted);font-size:13px">Hyderabad, India</div>
           </div>
+
+          <div style="margin-top:14px">
+            <a class="cta-primary" href="#contact" style="display:inline-block">Request a Call</a>
+          </div>
+
+          <div style="margin-top:14px">
+            <div style="font-size:13px;color:var(--muted)">Referral</div>
+            <div style="margin-top:6px"><span style="display:inline-block;padding:6px 10px;border-radius:8px;background:var(--mint);color:var(--navy);font-weight:700;font-size:12px">10% referral discount</span></div>
+          </div>
+
+          <div style="margin-top:12px;font-size:12px;color:var(--muted)">
+            <strong>Exclusive Policy:</strong> We do not onboard another specialist from your same specialty within your city.
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="packages" class="section reveal">
+      <h2>Personal Brand Toolkit — Transparent Pricing & Deliverables</h2>
+      <p class="lead-small">We productize our work so doctors know exactly what they get. No hidden fees. Clear deliverables.</p>
+
+      <div class="price-table" aria-hidden="false">
+        <!-- Starter -->
+        <div class="price-card">
+          <div class="title">
+            <div><strong>Starter Package</strong><div style="font-size:12px;color:var(--muted)">For new / individual practitioners</div></div>
+            <div class="badge" style="background:var(--mint);color:var(--navy);padding:6px 8px;border-radius:8px;font-weight:700">One-time</div>
+          </div>
+          <div class="price-amount">₹15,000 – ₹20,000</div>
+          <ul class="features">
+            <li>Logo design (2–3 options)</li>
+            <li>Basic one-page website (profile, services, contact, map)</li>
+            <li>Visiting card & letterhead design</li>
+            <li>WhatsApp DP + clinic banner</li>
+            <li>1 consultation call + onboarding questionnaire</li>
+            <li>Google Business checklist</li>
+          </ul>
+          <div><a class="btn-ghost" href="#contact">Book Starter</a></div>
+        </div>
+
+        <!-- Professional -->
+        <div class="price-card">
+          <div class="title">
+            <div><strong>Professional Package</strong><div style="font-size:12px;color:var(--muted)">For doctors with small clinics</div></div>
+            <div class="badge" style="background:#e8f9f9;color:var(--navy);padding:6px 8px;border-radius:8px;font-weight:700">One-time</div>
+          </div>
+          <div class="price-amount">₹30,000 – ₹40,000</div>
+          <ul class="features">
+            <li>Everything in Starter</li>
+            <li>Multi-page website (services, testimonials, blog/education)</li>
+            <li>Social media branding kit (FB, Instagram, LinkedIn banners)</li>
+            <li>5 content templates for patient-awareness posts</li>
+            <li>Google Business profile setup</li>
+            <li>2 consultation calls + content calendar (1 month)</li>
+          </ul>
+          <div><a class="btn-ghost" href="#contact">Book Professional</a></div>
+        </div>
+
+        <!-- Premium -->
+        <div class="price-card">
+          <div class="title">
+            <div><strong>Premium Package</strong><div style="font-size:12px;color:var(--muted)">For established doctors / clinics</div></div>
+            <div class="badge" style="background:#dff7f6;color:var(--navy);padding:6px 8px;border-radius:8px;font-weight:700">One-time</div>
+          </div>
+          <div class="price-amount">₹60,000 – ₹70,000</div>
+          <ul class="features">
+            <li>Everything in Professional</li>
+            <li>Advanced custom website with booking integration & SEO optimization</li>
+            <li>Full logo + brand identity kit (colors, fonts, guidelines)</li>
+            <li>15 patient-awareness social templates</li>
+            <li>One promotional video (AI-generated or motion graphics)</li>
+            <li>3 consultation calls + 6 months free website maintenance</li>
+          </ul>
+          <div><a class="btn-ghost" href="#contact">Book Premium</a></div>
         </div>
       </div>
 
-      <div style="width:320px">
-        <!-- Quick contact card -->
-        <div style="border-radius:12px;border:1px solid #eef2f7;padding:18px;background:#fafafc">
-          <strong>Contact</strong>
-          <p class="small" style="margin:8px 0 10px">nivorahealth@zohomail.in</p>
-          <p class="small" style="margin:0 0 10px">Hyderabad, India</p>
-          <a class="cta" href="mailto:nivorahealth@zohomail.in">Email Us</a>
+      <div style="margin-top:14px;color:var(--muted);font-size:13px">
+        <strong>Why this pricing?</strong> Transparent one-time fees reflect real deliverables: professional design systems, accessible websites, and a clinician-first approach. Premium pricing gives exclusivity, technical integrations, and ongoing maintenance.
+      </div>
+    </section>
+
+    <!-- EXTENDED CARE -->
+    <section id="monthly" class="section reveal">
+      <h2>Extended Care — Monthly Retainers (Branding + Marketing)</h2>
+      <p class="lead-small">For lasting growth, choose a monthly relationship. We act as your branding & growth partner.</p>
+
+      <div class="monthly-grid">
+        <div class="price-card">
+          <div class="title"><div><strong>Growth Care</strong><div style="font-size:12px;color:var(--muted)">Good for solo practitioners</div></div><div class="badge">₹25K/month</div></div>
+          <div style="margin-top:8px;color:var(--muted)">Deliverables:</div>
+          <ul class="features">
+            <li>Monthly content plan (4 posts)</li>
+            <li>Google reputation management</li>
+            <li>Analytics & monthly report</li>
+            <li>Email support & quarterly check-in</li>
+          </ul>
+          <div><a class="btn-ghost" href="#contact">Start Growth Care</a></div>
+        </div>
+
+        <div class="price-card">
+          <div class="title"><div><strong>Authority Care</strong><div style="font-size:12px;color:var(--muted)">For clinics building thought leadership</div></div><div class="badge">₹35K/month</div></div>
+          <div style="margin-top:8px;color:var(--muted)">Deliverables:</div>
+          <ul class="features">
+            <li>Everything in Growth Care</li>
+            <li>8 custom posts + 2 blog articles/month</li>
+            <li>SEO optimization</li>
+            <li>Monthly strategy call</li>
+          </ul>
+          <div><a class="btn-ghost" href="#contact">Start Authority Care</a></div>
+        </div>
+
+        <div class="price-card">
+          <div class="title"><div><strong>Legacy Care</strong><div style="font-size:12px;color:var(--muted)">For established clinics & hospitals</div></div><div class="badge">₹50K/month</div></div>
+          <div style="margin-top:8px;color:var(--muted)">Deliverables:</div>
+          <ul class="features">
+            <li>Everything in Authority Care</li>
+            <li>12+ posts/month (reels, infographics, patient education)</li>
+            <li>Media collaborations & PR opportunities</li>
+            <li>Quarterly brand audit & growth roadmap</li>
+          </ul>
+          <div><a class="btn-ghost" href="#contact">Start Legacy Care</a></div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <strong>Add-ons & monetization:</strong>
+        <div class="addons">
+          <span class="pill">Annual Website Maintenance: ₹5K–₹15K/yr</span>
+          <span class="pill">Brand Improvement Consults: ₹5K/session</span>
+          <span class="pill">Patient education videos: ₹10K+</span>
+          <span class="pill">SEO for "Doctor near me": project-based</span>
+          <span class="pill">Paid ads management: monthly retainer</span>
         </div>
       </div>
     </section>
 
-    <section id="services" style="margin-top:44px">
-      <h2 style="color:var(--navy)">How we help</h2>
-      <p class="small">We combine evidence-based design, medical ethics and local SEO to increase trust and bookings.</p>
+    <!-- ROADMAP -->
+    <section id="roadmap" class="section reveal">
+      <h2>Roadmap — Our Process (What you can expect)</h2>
+      <p class="lead-small">Clear, time-bound phases with deliverables so you always know progress and ROI.</p>
 
-      <div class="cards" style="margin-top:18px">
-        <div class="card"><h3>Brand Identity</h3><p class="small">Logo, identity, clinic collaterals & brand guidelines.</p></div>
-        <div class="card"><h3>Digital Presence</h3><p class="small">Website, Google profile setup, online listings & SEO.</p></div>
-        <div class="card"><h3>Content & Reputation</h3><p class="small">Patient education, reviews & monthly content plans.</p></div>
-        <div class="card"><h3>Products & Tools</h3><p class="small">Booking integrations, appointment flows & patient apps.</p></div>
+      <div class="process">
+        <div class="step"><strong>1. Discovery (Week 0–1)</strong><p class="small">Kickoff call, journey mapping, compliance & niche positioning.</p></div>
+        <div class="step"><strong>2. Identity (Week 1–2)</strong><p class="small">Logo options, color palette, brand voice and approvals.</p></div>
+        <div class="step"><strong>3. Digital Setup (Week 2–4)</strong><p class="small">Website build, GMB setup, social profiles, analytics baseline.</p></div>
+        <div class="step"><strong>4. Launch (Week 4–6)</strong><p class="small">Go live, publish initial content, request first reviews.</p></div>
+        <div class="step"><strong>5. Growth (Month 2–6)</strong><p class="small">Content cadence, SEO, reputation, ads (optional).</p></div>
+        <div class="step"><strong>6. Authority (Month 6+)</strong><p class="small">Media features, conferences, partnerships & long-term legacy building.</p></div>
       </div>
     </section>
 
-    <section id="work" style="margin-top:44px">
-      <h2 style="color:var(--navy)">Sample work (mockups)</h2>
-      <p class="small">Case studies & before-after examples available on request.</p>
+    <!-- CASE STUDIES & TESTIMONIALS -->
+    <section id="work" class="section reveal">
+      <h2>Case Studies & Testimonials</h2>
+      <p class="lead-small">We start with mock/early case studies. As we onboard clients we will publish real 'before-after' metrics (visibility, calls, bookings).</p>
+
+      <div class="case-grid">
+        <article class="case" aria-labelledby="case1">
+          <div class="media" role="img" aria-label="Cardiac Clinic">Cardiac Clinic • Brand Refresh</div>
+          <div class="content"><h3 id="case1">Cardiac Clinic Refresh</h3><p class="small">Identity + one-page site + GMB optimization. Result: clearer service pages, improved appointment clarity (mock results).</p></div>
+        </article>
+
+        <article class="case" aria-labelledby="case2">
+          <div class="media" role="img" aria-label="Dermatology">Dermatology • Social Growth</div>
+          <div class="content"><h3 id="case2">Dermatology Practice</h3><p class="small">New identity + content templates increased engagement (mock results).</p></div>
+        </article>
+
+        <article class="case" aria-labelledby="case3">
+          <div class="media" role="img" aria-label="Clinic">Multi-Doctor Clinic</div>
+          <div class="content"><h3 id="case3">Clinic Rebrand</h3><p class="small">Clinic-level branding included signage & booking UX (mock results).</p></div>
+        </article>
+      </div>
+
+      <div style="margin-top:12px">
+        <h3 style="margin-bottom:6px;color:var(--navy)">What early clinics say (sample testimonials)</h3>
+        <blockquote style="margin:0;border-left:4px solid var(--mint);padding:12px;background:#fff;border-radius:8px">
+          “Nivora transformed our online presence — patients now find us easily and our online info is clearer.” — <strong>Dr. S. (Cardiology)</strong>
+        </blockquote>
+      </div>
     </section>
 
-    <section id="contact" style="margin-top:28px">
-      <h2 style="color:var(--navy)">Get in touch</h2>
-      <p class="small">Tell us a little about your practice and we’ll respond within 48 hours.</p>
+    <!-- TEAM -->
+    <section id="team" class="section reveal">
+      <h2>Team & Founder</h2>
+      <p class="lead-small">Founder-led boutique + specialist freelancers. We scale team per project to maintain quality and ethics.</p>
+      <div class="team-grid">
+        <div class="member">
+          <div style="height:90px;width:90px;border-radius:999px;background:linear-gradient(135deg,var(--navy),var(--mint));margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800">T</div>
+          <strong>Tanmai A. Varma</strong>
+          <p class="small" style="margin:8px 0 0">Founder — Healthcare branding strategist</p>
+        </div>
+        <div class="member">
+          <div style="height:90px;width:90px;border-radius:999px;background:linear-gradient(135deg,var(--navy),#74d6cf);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800">D</div>
+          <strong>Design & UX</strong><p class="small" style="margin:8px 0 0">Brand systems & web UX</p>
+        </div>
+        <div class="member">
+          <div style="height:90px;width:90px;border-radius:999px;background:linear-gradient(135deg,var(--navy),#74d6cf);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800">M</div>
+          <strong>Marketing</strong><p class="small" style="margin:8px 0 0">Local SEO & patient acquisition</p>
+        </div>
+      </div>
+    </section>
 
-      <!-- Simple form (Formspree example). Replace action with your Formspree endpoint. -->
-      <form action="https://formspree.io/f/your-form-id" method="POST" style="max-width:560px">
-        <div style="display:flex;gap:8px">
-          <input name="name" placeholder="Your name" required style="flex:1;padding:10px;border:1px solid #e6e9ef;border-radius:6px" />
-          <input name="phone" placeholder="Phone" required style="flex:1;padding:10px;border:1px solid #e6e9ef;border-radius:6px" />
+    <!-- ETHICS & FAQ -->
+    <section id="faq" class="section reveal">
+      <h2>Ethics & FAQ</h2>
+      <div class="faq">
+        <details><summary><strong>Do you guarantee patient numbers?</strong></summary><p class="small">No — we increase visibility and conversion potential. Results depend on location, service availability and follow-up systems.</p></details>
+        <details style="margin-top:8px"><summary><strong>Do you work with competitors?</strong></summary><p class="small">No. We guarantee exclusivity: one doctor per specialty per city to avoid conflicts.</p></details>
+        <details style="margin-top:8px"><summary><strong>Is clinical content reviewed?</strong></summary><p class="small">Yes — all clinical content is reviewed & approved by the practicing doctor before publishing.</p></details>
+        <details style="margin-top:8px"><summary><strong>How do payments work?</strong></summary><p class="small">One-time packages paid 50% upfront, 50% on delivery. Monthly retainers billed monthly with 30-day cancellation. Custom contracts for larger clients.</p></details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section reveal">
+      <h2>Contact & Bookings</h2>
+      <p class="lead-small">Tell us about your practice — we’ll reply within 48 hours. Prefer phone? use the email below.</p>
+
+      <form action="https://formspree.io/f/FORMSPREE_ENDPOINT" method="POST" style="max-width:820px;margin-top:12px">
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <input name="name" placeholder="Your name" required style="flex:1;padding:12px;border-radius:10px;border:1px solid rgba(2,43,83,0.06)" />
+          <input name="phone" placeholder="Phone" required style="flex:1;padding:12px;border-radius:10px;border:1px solid rgba(2,43,83,0.06)" />
         </div>
         <div style="margin-top:8px">
-          <input name="email" placeholder="Email" required style="width:100%;padding:10px;border:1px solid #e6e9ef;border-radius:6px" />
+          <input name="email" placeholder="Email" required style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(2,43,83,0.06)" />
         </div>
         <div style="margin-top:8px">
-          <textarea name="message" placeholder="Tell us about your practice" rows="4" style="width:100%;padding:10px;border:1px solid #e6e9ef;border-radius:6px"></textarea>
+          <select name="package" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(2,43,83,0.06)">
+            <option value="">Interested in</option>
+            <option>Starter Package</option>
+            <option>Professional Package</option>
+            <option>Premium Package</option>
+            <option>Growth / Authority / Legacy (Monthly)</option>
+            <option>Custom / Clinic / Hospital</option>
+          </select>
         </div>
-        <div style="margin-top:10px">
-          <button type="submit" class="cta">Send message</button>
+        <div style="margin-top:8px">
+          <textarea name="message" placeholder="Tell us about your practice & goals (10+ chars)" rows="5" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(2,43,83,0.06)"></textarea>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:12px;align-items:center">
+          <button type="submit" class="cta-primary">Send Message</button>
+          <div style="font-size:13px;color:var(--muted)">Or email <a href="mailto:nivorahealth@zohomail.in">nivorahealth@zohomail.in</a></div>
         </div>
       </form>
+
+      <div style="margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(2,43,83,0.06)">
+        <div style="padding:10px;background:linear-gradient(90deg,var(--navy),var(--mint));color:#fff">Office Location</div>
+        <div style="padding:12px;background:#fff;color:var(--muted)">Hyderabad, Telangana — exact address shared after onboarding.</div>
+      </div>
     </section>
 
-    <footer>
-      <div>© <strong>Nivora HealthTech Solutions</strong> • Built on GitHub Pages</div>
-      <div style="margin-top:8px" class="small">“Doctors save lives. We save their legacy.”</div>
+    <footer class="reveal">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--mint));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800">N</div>
+          <div><strong>Nivora HealthTech Solutions</strong><div style="font-size:13px;color:var(--muted)">Ethical healthcare branding</div></div>
+        </div>
+
+        <div style="text-align:right;color:var(--muted)">
+          <div>© <strong>Nivora</strong> <span id="year"></span></div>
+          <div style="font-size:12px">“Doctors save lives. We save their legacy.”</div>
+        </div>
+      </div>
     </footer>
   </div>
 
-  <!-- Add analytics: replace UA-XXXXX or GA4 placeholder below -->
-  <!-- Google Analytics placeholder: -->
-  <script>
-    // Replace with your analytics snippet if any
-    window.NIVORA = { site: 'nivorahealth.github.io' };
-  </script>
+<script>
+/* Mobile nav + reveal + basic form validation */
+document.getElementById('year').textContent = new Date().getFullYear();
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMobile = document.getElementById('closeMobile');
+if(mobileToggle){
+  mobileToggle.addEventListener('click',()=>{ mobileMenu.style.display='block'; mobileMenu.setAttribute('aria-hidden','false'); });
+  closeMobile.addEventListener('click',()=>{ mobileMenu.style.display='none'; mobileMenu.setAttribute('aria-hidden','true'); });
+}
+
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:0.12});
+revealEls.forEach(el=>io.observe(el));
+
+/* basic validation before Formspree submit */
+const form = document.querySelector('form[action*="formspree"]');
+if(form){
+  form.addEventListener('submit', e=>{
+    const msg = form.querySelector('textarea[name="message"]');
+    if(msg && msg.value.trim().length < 10){ e.preventDefault(); alert('Please tell us briefly about your practice (10+ characters).'); return false; }
+  });
+}
+</script>
 </body>
 </html>
