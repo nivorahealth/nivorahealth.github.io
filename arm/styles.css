@@ -1,0 +1,37 @@
+:root{
+  --navy:#022B53;
+  --mint:#B4DBDC;
+  --muted:#58606b;
+  --bg:#ffffff;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,Arial}
+body{margin:0;background:linear-gradient(180deg,#fbfeff,#ffffff);color:var(--navy)}
+.topbar{background:#fff;border-bottom:1px solid rgba(2,43,83,0.06);display:flex;align-items:center;justify-content:space-between;padding:12px 20px;position:sticky;top:0;z-index:5}
+.brand-logo{height:42px;object-fit:contain}
+.wrap{max-width:1100px;margin:20px auto;padding:0 16px}
+.card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 8px 20px rgba(2,43,83,0.04);margin-bottom:16px}
+.center{text-align:center}
+.avatar-lg{width:96px;height:96px;border-radius:14px;object-fit:cover;margin-bottom:8px}
+.avatar-sm{width:36px;height:36px;border-radius:8px;object-fit:cover;margin-right:8px;vertical-align:middle}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.btn{background:var(--navy);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(2,43,83,0.08);color:var(--navy)}
+.btn.small{padding:6px 8px;font-size:13px}
+.btn.danger{background:#d9534f}
+.hidden{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tile{display:flex;flex-direction:column;justify-content:space-between;min-height:140px}
+.tile-actions{display:flex;gap:8px}
+.panel{margin-top:12px}
+.panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.panel-body .grid-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.list{max-height:340px;overflow:auto;border-radius:8px;padding:6px;border:1px dashed rgba(2,43,83,0.04)}
+.list .item{padding:8px;border-bottom:1px solid #f0f4f6;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.list .item:last-child{border-bottom:none}
+input,textarea,select{padding:8px;border-radius:8px;border:1px solid rgba(2,43,83,0.06);width:100%;box-sizing:border-box;margin-top:6px}
+.site-footer{max-width:1100px;margin:18px auto;padding:12px 16px;display:flex;align-items:center;gap:12px;color:var(--muted)}
+@media(max-width:720px){
+  .panel-body .grid-two{grid-template-columns:1fr}
+  .brand-logo{height:32px}
+}

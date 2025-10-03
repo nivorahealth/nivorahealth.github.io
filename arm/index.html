@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nivora ARM — Admin Toolkit</title>
+  <meta name="description" content="Nivora ARM — lightweight admin tools (prototype)." />
+
+  <link rel="icon" type="image/png" href="/assets/nivora-avatar.png" />
+  <link rel="stylesheet" href="/arm/styles.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <img src="/assets/nivora-logo.png" alt="Nivora logo" class="brand-logo" />
+    </div>
+    <div class="top-actions" id="topActions" style="display:none;">
+      <span id="loggedUser" class="muted">admin</span>
+      <button id="logoutBtn" class="btn small danger">Logout</button>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <!-- LOGIN -->
+    <section id="loginSection" class="card center">
+      <img src="/assets/nivora-avatar.png" alt="avatar" class="avatar-lg" />
+      <h2>Admin Login</h2>
+      <p class="muted">Enter the admin password to access the Nivora ARM toolkit.</p>
+      <form id="loginForm" onsubmit="return false;">
+        <input id="usernameInput" placeholder="Username" value="admin" />
+        <input id="passwordInput" placeholder="Password" type="password" />
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:10px;">
+          <button id="loginBtn" class="btn">Sign in</button>
+        </div>
+        <p class="muted small" style="margin-top:10px">Prototype only — data kept in your browser (LocalStorage).</p>
+      </form>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="appSection" class="hidden">
+      <div class="grid">
+        <div class="card tile">
+          <h3>Clients</h3>
+          <p class="muted">Add, edit and maintain client contacts & notes.</p>
+          <div class="tile-actions">
+            <button class="btn" id="openClients">Open</button>
+            <button class="btn ghost" id="exportClients">Export CSV</button>
+          </div>
+        </div>
+
+        <div class="card tile">
+          <h3>Projects</h3>
+          <p class="muted">Track small projects & assignments.</p>
+          <div class="tile-actions">
+            <button class="btn" id="openProjects">Open</button>
+            <button class="btn ghost" id="exportProjects">Export CSV</button>
+          </div>
+        </div>
+
+        <div class="card tile">
+          <h3>Templates</h3>
+          <p class="muted">Store message / proposal templates for reuse.</p>
+          <div class="tile-actions">
+            <button class="btn" id="openTemplates">Open</button>
+            <button class="btn ghost" id="exportTemplates">Export JSON</button>
+          </div>
+        </div>
+
+        <div class="card tile">
+          <h3>Quick Notes</h3>
+          <p class="muted">Small scratchpad for to-dos or SOPs.</p>
+          <div class="tile-actions">
+            <button class="btn" id="openNotes">Open</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clients panel -->
+      <div id="clientsPanel" class="panel hidden card">
+        <div class="panel-header">
+          <h3>Clients</h3>
+          <div><button class="btn ghost" id="clientsBack">Back</button></div>
+        </div>
+
+        <div class="panel-body grid-two">
+          <div class="card">
+            <h4>Add / Edit Client</h4>
+            <form id="clientForm" onsubmit="return false;">
+              <input id="clientId" type="hidden" />
+              <label>Name</label>
+              <input id="clientName" required />
+              <label>Phone</label>
+              <input id="clientPhone" />
+              <label>Email</label>
+              <input id="clientEmail" />
+              <label>Notes</label>
+              <textarea id="clientNotes" rows="4"></textarea>
+              <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end;">
+                <button class="btn" id="saveClientBtn">Save</button>
+                <button class="btn ghost" id="clearClientBtn">Clear</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h4>Client List</h4>
+            <div id="clientsList" class="list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects panel -->
+      <div id="projectsPanel" class="panel hidden card">
+        <div class="panel-header">
+          <h3>Projects</h3>
+          <div><button class="btn ghost" id="projectsBack">Back</button></div>
+        </div>
+        <div class="panel-body grid-two">
+          <div class="card">
+            <h4>Add Project</h4>
+            <form id="projectForm" onsubmit="return false;">
+              <input id="projectId" type="hidden" />
+              <label>Title</label>
+              <input id="projectTitle" required />
+              <label>Client (optional)</label>
+              <input id="projectClient" placeholder="client name" />
+              <label>Status</label>
+              <select id="projectStatus">
+                <option>Idea</option><option>Planned</option><option>Active</option><option>Completed</option>
+              </select>
+              <label>Notes</label>
+              <textarea id="projectNotes" rows="4"></textarea>
+              <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end;">
+                <button class="btn" id="saveProjectBtn">Save</button>
+                <button class="btn ghost" id="clearProjectBtn">Clear</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h4>Project List</h4>
+            <div id="projectsList" class="list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Templates panel -->
+      <div id="templatesPanel" class="panel hidden card">
+        <div class="panel-header">
+          <h3>Templates</h3>
+          <div><button class="btn ghost" id="templatesBack">Back</button></div>
+        </div>
+        <div class="panel-body">
+          <form id="templateForm" onsubmit="return false;" style="margin-bottom:12px;">
+            <input id="templateId" type="hidden" />
+            <label>Title</label>
+            <input id="templateTitle" required />
+            <label>Body</label>
+            <textarea id="templateBody" rows="5"></textarea>
+            <div style="margin-top:8px;text-align:right;">
+              <button class="btn" id="saveTemplateBtn">Save Template</button>
+            </div>
+          </form>
+          <div id="templatesList" class="list"></div>
+        </div>
+      </div>
+
+      <!-- Notes panel -->
+      <div id="notesPanel" class="panel hidden card">
+        <div class="panel-header">
+          <h3>Quick Notes</h3>
+          <div><button class="btn ghost" id="notesBack">Back</button></div>
+        </div>
+        <div class="panel-body">
+          <label>Notes</label>
+          <textarea id="notesArea" rows="10" style="width:100%;"></textarea>
+          <div style="margin-top:8px;text-align:right;">
+            <button class="btn" id="saveNotesBtn">Save Notes</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <img src="/assets/nivora-avatar.png" alt="avatar" class="avatar-sm" />
+      <span class="muted">Nivora ARM • Prototype — remember: data stored in your browser</span>
+    </div>
+  </footer>
+
+  <script src="/arm/app.js"></script>
+</body>
+</html>
